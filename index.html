@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Season 2 London</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/main.min.css">
+
+<article>
+  <section>
+    <h2>How much £ does your monthly season ticket cost? </h2>
+    <input type="input" id="cost" value="" placeholder="..monthly cost..">
+    <span>Yearly +<output id="resultYearly">0</output>£</span>
+    <span>Daily +<output id="resultDaily">0</output>£</span>
+  </section>
+</article>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  jQuery('#cost').on('input', function(){
+    var cost = parseInt($(this).val()); 
+    var percentage = 18.88;
+    var grossCost = cost + ((cost / 100) * percentage);
+
+    var yearlyCost = parseInt(grossCost * 12);
+
+    var dailyCost = parseInt(grossCost/20) ;
+
+    $('#resultYearly').val(yearlyCost);
+    $('#resultDaily').val(dailyCost);
+  });
+</script>
+
+
+
